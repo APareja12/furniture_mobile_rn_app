@@ -5,6 +5,7 @@ import { StyleSheet, Text, View } from 'react-native';
 import { useFonts } from 'expo-font';
 import * as SplashScreen from 'expo-splash-screen';
 import { useCallback } from 'react';
+import BottomTabNavigation from './navigation/BottomTabNavigation';
 
 const Stack = createNativeStackNavigator();
 
@@ -30,20 +31,13 @@ export default function App() {
 
   return (
     <NavigationContainer>
-      <Stack.Navigator></Stack.Navigator>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Bottom Navigation"
+          component={BottomTabNavigation}
+          options={{ headerShown: false }}
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  textStyle: {
-    fontFamily: 'extrabold',
-    fontSize: 20,
-  },
-});
